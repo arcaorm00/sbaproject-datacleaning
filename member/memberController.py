@@ -33,7 +33,7 @@ class MemberController:
         this = service.password_nominal(this)
         print(f'비밀번호 정제 후: \n{this.train["Password"]}')
         this = service.email_nominal(this)
-        # print(f'uuid 정제 후: \n{this.train["Email"]}')
+        print(f'이메일 정제 후: \n{this.train["Email"]}')
         return this
 
     def learning(self):

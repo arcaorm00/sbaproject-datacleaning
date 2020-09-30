@@ -133,6 +133,10 @@ class MemberService:
         this.train['Password'] = '1234'
         return this
 
-
-    # 비밀번호, 이메일 있어야 함
-    # 비밀번호 일단 모두 1234로 지정할 것
+    # 이메일 추가 (임시 uuid_CustomerId@gmail.com)
+    @staticmethod
+    def email_nominal(this):
+        this.train['Email'] = ''
+        for idx in range(len(this.train)):
+            this.train.loc[idx,'Email'] = str(uuid.uuid1()).split('-')[3] + '_' + str(this.train.loc[idx,'CustomerId']) + '@gmail.com'
+        return this
