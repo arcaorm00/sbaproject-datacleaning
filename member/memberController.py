@@ -34,6 +34,7 @@ class MemberController:
         print(f'비밀번호 정제 후: \n{this.train["Password"]}')
         this = service.email_nominal(this)
         print(f'이메일 정제 후: \n{this.train["Email"]}')
+        this.train.to_csv(os.path.join(self.data, 'member_cleaned.csv'), index=False)
         return this
 
     def learning(self):
@@ -46,5 +47,5 @@ class MemberController:
 if __name__ == '__main__':
     print(f'********** {basedir} **********')
     ctrl = MemberController()
-    ctrl.modeling('member.csv')
+    ctrl.modeling('member_dataset.csv')
     
