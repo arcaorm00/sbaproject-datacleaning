@@ -5,9 +5,10 @@ from config import basedir
 from util.file_helper import FileReader
 import pandas as pd
 import numpy as np
+import uuid
 
 # RowNumber,        레코드 행 번호
-# CustomerId,       고객 ID     ==> 문제
+# CustomerId,       고객 ID
 # Surname,          고객 last name
 # CreditScore,      신용점수
 # Geography,        지역
@@ -19,7 +20,7 @@ import numpy as np
 # HasCrCard,        신용카드 여부
 # IsActiveMember,   활성 고객 여부
 # EstimatedSalary,  급여 수준
-# Exited            서비스 탈퇴 여부    ==> 답
+# Exited            서비스 탈퇴 여부
 
 class MemberService:
     def __init__(self):
@@ -125,6 +126,13 @@ class MemberService:
     def estimatedSalary_ordinal(this):
         this.train['EstimatedSalary'] = pd.qcut(this.train['EstimatedSalary'], 4, labels={1, 2, 3, 4})
         return this
+
+    # 비밀번호 추가 (임시 1234 통일)
+    @staticmethod
+    def password_nominal(this):
+        this.train['Password'] = '1234'
+        return this
+
 
     # 비밀번호, 이메일 있어야 함
     # 비밀번호 일단 모두 1234로 지정할 것
