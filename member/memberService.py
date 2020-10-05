@@ -140,3 +140,9 @@ class MemberService:
         for idx in range(len(this.train)):
             this.train.loc[idx,'Email'] = str(uuid.uuid1()).split('-')[3] + '_' + str(this.train.loc[idx,'CustomerId']) + '@gmail.com'
         return this
+    
+    # 권한 추가 (모두 회원 권한)
+    @staticmethod
+    def role_nominal(this):
+        this.train['Role'] = 'ROLE_USER'
+        return this
