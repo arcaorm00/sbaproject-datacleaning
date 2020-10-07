@@ -23,20 +23,20 @@ class MemberController:
         this = self.fileReader
         this.context = '/Users/saltQ/sbaproject-api/member/data/'
         this.train = service.new_model(data)
-        print(f'feature 드롭 전 변수: \n{this.train.columns}')
-        this = service.gender_nominal(this)
-        print(f'성별 정제 후: \n{this.train.head()}')
-        this = service.age_ordinal(this)
-        print(f'나이 정제 후: \n{this.train.head()}')
-        this = service.estimatedSalary_ordinal(this)
-        print(f'수입 정제 후: \n{this.train.head()}')
+        # print(f'feature 드롭 전 변수: \n{this.train.columns}')
+        # this = service.gender_nominal(this)
+        # print(f'성별 정제 후: \n{this.train.head()}')
+        # this = service.age_ordinal(this)
+        # print(f'나이 정제 후: \n{this.train.head()}')
+        # this = service.estimatedSalary_ordinal(this)
+        # print(f'수입 정제 후: \n{this.train.head()}')
         this = service.password_nominal(this)
         print(f'비밀번호 정제 후: \n{this.train["Password"]}')
         this = service.email_nominal(this)
         print(f'이메일 정제 후: \n{this.train["Email"]}')
         this = service.role_nominal(this)
         print(f'이메일 정제 후: \n{this.train["Role"]}')
-        this.train.to_csv(os.path.join(self.data, 'member_cleaned.csv'), index=False)
+        this.train.to_csv(os.path.join(self.data, 'member_detail.csv'), index=False)
         return this
 
     def learning(self):

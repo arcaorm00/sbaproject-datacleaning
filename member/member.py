@@ -20,7 +20,7 @@ from config import basedir
 # EstimatedSalary,  급여 수준
 # Exited            서비스 탈퇴 여부    ==> 답
 
-class MemberService:
+class Member:
     def __init__(self):
         self.fileReader = FileReader()
         self.data = os.path.join(os.path.join(basedir, 'member'), 'data')
